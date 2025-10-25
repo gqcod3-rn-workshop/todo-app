@@ -55,6 +55,7 @@ const AddTodoTask = () => {
                     <View className='w-[49%]'>
                         <UniversalInput
                             inputType="date"
+                            iconSource={icons.iconCalendar}
                             label="Date"
                             value={selectedDate}
                             onValueChange={(value) => setSelectedDate(value as Date)}
@@ -65,6 +66,7 @@ const AddTodoTask = () => {
                     <View className='w-[49%]'>
                         <UniversalInput
                             inputType="time"
+                            iconSource={icons.iconClock}
                             label="Time"
                             value={selectedTime}
                             onValueChange={(value) => setSelectedTime(value as Date)}

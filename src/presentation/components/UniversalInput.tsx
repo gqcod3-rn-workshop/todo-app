@@ -111,7 +111,7 @@ const UniversalInput = ({
                     </>
                 )}
 
-                {hasIcon && <Image source={iconSource} className='absolute size-8 right-4 top-3' />}
+                {hasIcon && <Image source={iconSource} className='absolute size-5 right-4 top-4' />}
             </View>
         </View>
     );
