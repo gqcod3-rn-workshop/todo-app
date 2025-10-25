@@ -1,8 +1,10 @@
 import { icons } from '@/src/constants/icons';
 import { Checkbox } from 'expo-checkbox';
+import { RelativePathString } from 'expo-router';
 import React, { useState } from 'react';
 import { Image, Text, View } from 'react-native';
-import useDate from '../hooks/useDate';
+import CustomButton from '../components/CustomButton';
+import CustomHeader from '../components/CustomHeader';
 
 /**
  * Task Item Props Interface for defining the properties of a task item.
@@ -21,7 +23,7 @@ interface TaskItemProps {
  * @param {Object} props - Component props
  * @param {('goal'|'task'|'event')} props.category - Task category that determines the icon
  * @param {string} props.description - Task description (truncated to 2 lines)
- * @returns The rendered Task Item component.
+ * @returns The rendered Task Item component
  */
 const TaskItem = ({ category, description }: TaskItemProps) => {
 
@@ -50,7 +52,7 @@ const TaskItem = ({ category, description }: TaskItemProps) => {
                         source={CategoryIcon}
                         className={`${isCompleted ? 'opacity-50' : 'opacity-100'}`}
                     />
-                    <Text className={`${isCompleted ? 'line-through' : '' } font-semibold text-base`}
+                    <Text className={`${isCompleted ? 'line-through' : ''} font-semibold text-base`}
                         numberOfLines={2}>{description}
                     </Text>
                 </View>
@@ -75,28 +77,17 @@ const TaskItem = ({ category, description }: TaskItemProps) => {
  */
 const HomeScreen = () => {
 
-    const { getCurrentDate } = useDate();
+    const pathToAddTask = '/todo/add' as unknown as RelativePathString;
 
     return (
         <View className='bg-secondary min-h-full relative'>
+
             <View className='min-h-full'>
-                <View className='bg-primary h-[30%] flex-col py-20 items-center gap-8 relative overflow-hidden'>
-
-                    <View className='absolute rounded-full -left-20 -bottom-28 bg-secondary opacity-15 size-56 justify-center items-center'>
-                        <View className='size-36 rounded-full bg-primary' />
-                    </View>
-
-                    <View className='absolute rounded-full -right-28 -top-6 bg-secondary opacity-15 size-48 justify-center items-center'>
-                        <View className='size-28 rounded-full bg-primary' />
-                    </View>
-
-                    <Text className='text-white font-bold text-lg'>
-                        {getCurrentDate()}
-                    </Text>
-
-                    <Text className='text-white font-bold text-4xl'>
-                        Today's Tasks
-                    </Text>
+                <View className='max-h-[30%]'>
+                    <CustomHeader
+                        showDate={true}
+                        title={'Today\'s Tasks'}
+                    />
                 </View>
 
                 <View className='p-4 absolute top-[22%] flex-col gap-6 w-full'>
@@ -117,6 +108,14 @@ const HomeScreen = () => {
                             description='Finish the React Native project'
                         />
                     </View>
+                </View>
+
+                <View className='absolute bottom-10 w-full px-4'>
+                    <CustomButton
+                        label="Add New Task"
+                        pathToNavigate={pathToAddTask}
+                        onPress={() => console.log('Task added')}
+                    />
                 </View>
             </View>
         </View>
