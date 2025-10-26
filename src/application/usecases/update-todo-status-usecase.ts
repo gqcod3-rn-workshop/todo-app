@@ -24,3 +24,5 @@ class UpdateTodoStatusUseCase {
         await this.todoRepository.updateTodoStatus(id, isCompleted);
     }
 };
+
+export default UpdateTodoStatusUseCase;

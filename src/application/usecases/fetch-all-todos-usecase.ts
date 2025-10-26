@@ -20,7 +20,8 @@ class FetchAllTodosUseCase {
      * @returns A promise that resolves to an array of TodoEntity objects.
      */
     async execute(): Promise<TodoEntity[]> {
-        return await this.todoRepository.fetchAllTodos();
+        const todos = await this.todoRepository.fetchAllTodos();
+        return todos;
     }
 };
 
