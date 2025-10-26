@@ -1,6 +1,5 @@
 import TodoEntity from "@/src/domain/entities/todo-entity";
 import TodoRepository from "@/src/domain/repositories/todo-repository";
-import { generateUUID } from "@/src/infrastructure/utils/uuid-generator";
 
 /**
  * Add Todo Use Case
@@ -38,7 +37,7 @@ class AddTodoUseCase {
         const todoDate = new Date(date);
         const todoTime = new Date(`${date}T${time}`);
 
-        const newTodo = new TodoEntity({
+        const newTodo = TodoEntity.fromRaw({
             title,
             category,
             date: todoDate,

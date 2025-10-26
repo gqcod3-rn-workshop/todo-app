@@ -43,10 +43,10 @@ const TaskItem = ({ todo, onToggleStatus }: TaskItemProps) => {
         }
     };
 
-    const CategoryIcon = getCategoryIcon(todo.category);
+    const CategoryIcon = getCategoryIcon(todo.getCategoryAsString());
 
     const handleToggle = async () => {
-        await onToggleStatus(todo.id, todo.isCompleted);
+        await onToggleStatus(todo.getIdAsString(), todo.isCompleted);
     };
 
     return (
@@ -140,7 +140,7 @@ const HomeScreen = () => {
                 <View className='p-4 absolute top-[22%] flex-col gap-6 w-full'>
                     <FlatList
                         data={todos.filter(todo => !todo.isCompleted)}
-                        keyExtractor={(item) => item.id}
+                        keyExtractor={(item) => item.getIdAsString()}
                         renderItem={({ item }) => (
                             <TaskItem
                                 todo={item}
@@ -162,7 +162,7 @@ const HomeScreen = () => {
                     <FlatList
                         className='rounded-xl bg-white overflow-hidden'
                         data={todos.filter(todo => todo.isCompleted)}
-                        keyExtractor={(item) => item.id}
+                        keyExtractor={(item) => item.getIdAsString()}
                         renderItem={({ item }) => (
                             <TaskItem
                                 todo={item}

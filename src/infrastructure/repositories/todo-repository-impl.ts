@@ -50,8 +50,9 @@ class TodoRepositoryImpl implements TodoRepository {
     async updateTodoStatus(id: string, isCompleted: boolean): Promise<void> {
         const todoIndex = this.todos.findIndex(todo => todo.id.getValue() === id);
         if (todoIndex !== -1) {
+            const existingTodo = this.todos[todoIndex];
             this.todos[todoIndex] = new TodoEntity({
-                ...this.todos[todoIndex],
+                ...existingTodo,
                 isCompleted
             });
         }
