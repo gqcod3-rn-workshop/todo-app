@@ -37,7 +37,7 @@ class TodoRepositoryImpl implements TodoRepository {
      * @memberof TodoRepositoryImpl
      */
     async deleteTodo(id: string): Promise<void> {
-        this.todos = this.todos.filter(todo => todo.id !== id);
+        this.todos = this.todos.filter(todo => todo.id.getValue() !== id);
     }
 
     /**
@@ -48,7 +48,7 @@ class TodoRepositoryImpl implements TodoRepository {
      * @memberof TodoRepositoryImpl
      */
     async updateTodoStatus(id: string, isCompleted: boolean): Promise<void> {
-        const todoIndex = this.todos.findIndex(todo => todo.id === id);
+        const todoIndex = this.todos.findIndex(todo => todo.id.getValue() === id);
         if (todoIndex !== -1) {
             this.todos[todoIndex] = new TodoEntity({
                 ...this.todos[todoIndex],

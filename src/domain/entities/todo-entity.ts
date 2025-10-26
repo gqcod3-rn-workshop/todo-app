@@ -1,3 +1,5 @@
+import TodoId from "../valueobjects/todo-id";
+
 /**
  * Todo Entity
  * @summary
@@ -12,7 +14,7 @@
  * @property {boolean} isCompleted - Status indicating whether the todo task is completed. 
 */
 class TodoEntity {
-    readonly id: string;
+    readonly id: TodoId;
     readonly title: string;
     readonly category: 'task' | 'event' | 'goal';
     readonly date: Date;
@@ -20,9 +22,12 @@ class TodoEntity {
     readonly notes?: string;
     readonly isCompleted: boolean;
 
+    /**
+     * Constructor for TodoEntity
+     * @param {Object} params - Parameters for creating a TodoEntity
+     */
     constructor(
         {
-            id,
             title,
             category,
             date,
@@ -30,7 +35,6 @@ class TodoEntity {
             notes,
             isCompleted = false
         }: {
-            id: string;
             title: string;
             category: 'task' | 'event' | 'goal';
             date: Date;
@@ -39,7 +43,7 @@ class TodoEntity {
             isCompleted?: boolean;
         }) {
 
-        this.id = id;
+        this.id = new TodoId();
         this.title = title;
         this.category = category;
         this.date = date;

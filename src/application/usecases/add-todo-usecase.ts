@@ -35,12 +35,10 @@ class AddTodoUseCase {
         notes: string;
     }): Promise<void> {
 
-        const todoId = generateUUID();
         const todoDate = new Date(date);
         const todoTime = new Date(`${date}T${time}`);
 
         const newTodo = new TodoEntity({
-            id: todoId,
             title,
             category,
             date: todoDate,
