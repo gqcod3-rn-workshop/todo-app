@@ -1,5 +1,6 @@
 import TodoEntity from "@/src/domain/entities/todo-entity";
 import TodoRepository from "@/src/domain/repositories/todo-repository";
+import { generateUUID } from "@/src/infrastructure/utils/uuid-generator";
 
 /**
  * Add Todo Use Case
@@ -25,7 +26,7 @@ class AddTodoUseCase {
         category,
         date,
         time,
-        notes,
+        notes
     }: {
         title: string;
         category: 'task' | 'event' | 'goal';
@@ -34,7 +35,7 @@ class AddTodoUseCase {
         notes: string;
     }): Promise<void> {
 
-        const todoId = crypto.randomUUID();
+        const todoId = generateUUID();
         const todoDate = new Date(date);
         const todoTime = new Date(`${date}T${time}`);
 
