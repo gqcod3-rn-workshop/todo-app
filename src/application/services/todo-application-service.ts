@@ -11,11 +11,11 @@ import TodoRepositoryImpl from "@/src/infrastructure/repositories/todo-repositor
  * Application Service that acts as a facade for all Todo use cases. It coordinates the use cases and manages application state. 
  */
 class TodoApplicationService {
-    private repository: TodoRepository;
-    private addTodoUseCase: AddTodoUseCase;
-    private deleteTodoUseCase: DeleteTodoUseCase;
-    private fetchAllTodosUseCase: FetchAllTodosUseCase;
-    private updateTodoStatusUseCase: UpdateTodoStatusUseCase;
+    private readonly repository: TodoRepository;
+    private readonly addTodoUseCase: AddTodoUseCase;
+    private readonly deleteTodoUseCase: DeleteTodoUseCase;
+    private readonly fetchAllTodosUseCase: FetchAllTodosUseCase;
+    private readonly updateTodoStatusUseCase: UpdateTodoStatusUseCase;
 
     constructor(repository?: TodoRepository) {
         this.repository = repository || new TodoRepositoryImpl();
