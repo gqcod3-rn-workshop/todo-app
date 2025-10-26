@@ -1,11 +1,10 @@
-import TodoEntity from '../../domain/entities/todo-entity';
-import TodoRepository from '../../domain/repositories/todo-repository';
+import TodoEntity from "@/src/domain/entities/todo-entity";
+import TodoRepository from "@/src/domain/repositories/todo-repository";
 
 /**
  * Todo Repository Implementation
  * @summary
- * Implementation of the TodoRepository interface using in-memory storage.
- * For production, replace with AsyncStorage, SQLite, or API calls.
+ * Implementation of the TodoRepository interface.
  * 
  * @implements {@link TodoRepository}
  */
