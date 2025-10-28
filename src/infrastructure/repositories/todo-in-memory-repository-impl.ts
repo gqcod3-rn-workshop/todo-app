@@ -2,13 +2,14 @@ import TodoEntity from "@/src/domain/entities/todo-entity";
 import TodoRepository from "@/src/domain/repositories/todo-repository";
 
 /**
- * Todo Repository Implementation
+ * Todo In-Memory Repository Implementation
  * @summary
- * Implementation of the TodoRepository interface.
+ * Implementation of the TodoRepository interface using an in-memory data structure.
+ * This implementation contains ONLY the methods defined in the TodoRepository interface.
  * 
  * @implements {@link TodoRepository}
  */
-class TodoRepositoryImpl implements TodoRepository {
+class TodoInMemoryRepositoryImpl implements TodoRepository {
     private todos: TodoEntity[] = [];
 
     /**
@@ -52,11 +53,16 @@ class TodoRepositoryImpl implements TodoRepository {
         if (todoIndex !== -1) {
             const existingTodo = this.todos[todoIndex];
             this.todos[todoIndex] = new TodoEntity({
-                ...existingTodo,
+                id: existingTodo.id.getValue(),
+                title: existingTodo.title,
+                category: existingTodo.category,
+                date: existingTodo.date,
+                time: existingTodo.time,
+                notes: existingTodo.notes,
                 isCompleted
             });
         }
     }
 }
 
-export default TodoRepositoryImpl;
+export default TodoInMemoryRepositoryImpl;
