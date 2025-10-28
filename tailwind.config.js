@@ -2,7 +2,9 @@
 module.exports = {
   content: [
     "./app/**/*.{js,jsx,ts,tsx}",
-    "./src/presentation/**/*.{js,jsx,ts,tsx}"
+    "./src/features/**/presentation/**/*.{js,jsx,ts,tsx}",
+    "./src/shared/components/**/*.{js,jsx,ts,tsx}",
+    "./src/shared/screens/**/*.{js,jsx,ts,tsx}",
   ],
   presets: [
     require("nativewind/preset")

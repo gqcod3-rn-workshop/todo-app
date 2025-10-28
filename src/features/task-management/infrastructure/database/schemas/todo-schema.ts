@@ -1,4 +1,4 @@
-import TodoEntity from '@/src/domain/entities/todo-entity';
+import TodoEntity from '@/src/features/task-management/domain/entities/todo-entity';
 
 /**
  * Todo Record Interface

@@ -1,5 +1,5 @@
-import TodoApplicationService from "@/src/application/services/todo-application-service";
-import { TodoSQLiteRepositoryImpl } from "@/src/infrastructure/repositories";
+import TodoApplicationService from "@/src/features/task-management/application/services/todo-application-service";
+import { TodoSQLiteRepositoryImpl } from "@/src/features/task-management/infrastructure/repositories";
 import React, { useContext, useMemo } from "react";
 
 /**

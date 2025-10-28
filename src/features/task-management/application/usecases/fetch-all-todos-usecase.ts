@@ -1,5 +1,5 @@
-import TodoEntity from "@/src/domain/entities/todo-entity";
-import TodoRepository from "@/src/domain/repositories/todo-repository";
+import TodoEntity from "@/src/features/task-management/domain/entities/todo-entity";
+import TodoRepository from "@/src/features/task-management/domain/repositories/todo-repository";
 
 /**
  * Fetch All Todos Use Case

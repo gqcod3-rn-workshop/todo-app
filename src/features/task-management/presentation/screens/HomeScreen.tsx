@@ -1,5 +1,5 @@
-import { icons } from '@/src/constants/icons';
-import TodoEntity from '@/src/domain/entities/todo-entity';
+import { icons } from '@/src/shared/constants/icons';
+import TodoEntity from '@/src/features/task-management/domain/entities/todo-entity';
 import { Checkbox } from 'expo-checkbox';
 import { RelativePathString, useFocusEffect } from 'expo-router';
 import React, { useCallback, useEffect, useState } from 'react';

@@ -1,4 +1,4 @@
-import { icons } from '@/src/constants/icons';
+import { icons } from '@/src/shared/constants/icons';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import React, { useState } from 'react';
 import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native';

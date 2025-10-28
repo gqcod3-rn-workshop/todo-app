@@ -1,4 +1,4 @@
-import TodoRepository from "@/src/domain/repositories/todo-repository";
+import TodoRepository from "@/src/features/task-management/domain/repositories/todo-repository";
 
 /**
  * Update Todo Status Use Case

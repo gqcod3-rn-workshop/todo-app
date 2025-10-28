@@ -1,8 +1,8 @@
-import AddTodoUseCase from "@/src/application/usecases/add-todo-usecase";
-import DeleteTodoUseCase from "@/src/application/usecases/delete-todo-usecase";
-import FetchAllTodosUseCase from "@/src/application/usecases/fetch-all-todos-usecase";
-import UpdateTodoStatusUseCase from "@/src/application/usecases/update-todo-status-usecase";
-import TodoRepository from "@/src/domain/repositories/todo-repository";
+import AddTodoUseCase from "@/src/features/task-management/application/usecases/add-todo-usecase";
+import DeleteTodoUseCase from "@/src/features/task-management/application/usecases/delete-todo-usecase";
+import FetchAllTodosUseCase from "@/src/features/task-management/application/usecases/fetch-all-todos-usecase";
+import UpdateTodoStatusUseCase from "@/src/features/task-management/application/usecases/update-todo-status-usecase";
+import TodoRepository from "@/src/features/task-management/domain/repositories/todo-repository";
 
 /**
  * Todo Application Service

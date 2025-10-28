@@ -1,5 +1,5 @@
-import TodoEntity from "@/src/domain/entities/todo-entity";
-import TodoRepository from "@/src/domain/repositories/todo-repository";
+import TodoEntity from "@/src/features/task-management/domain/entities/todo-entity";
+import TodoRepository from "@/src/features/task-management/domain/repositories/todo-repository";
 import { TodoMapper, TodoRecord } from "../database/schemas/todo-schema";
 import Database from "../database/sqlite-client";
 

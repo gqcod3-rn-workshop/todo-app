@@ -1,4 +1,4 @@
-import { icons } from '@/src/constants/icons';
+import { icons } from '@/src/shared/constants/icons';
 import { useRouter } from 'expo-router';
 import React, { useState } from 'react';
 import { Image, Text, View } from 'react-native';
