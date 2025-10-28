@@ -29,6 +29,7 @@ class TodoEntity {
      */
     constructor(
         {
+            id,
             title,
             category,
             date,
@@ -36,6 +37,7 @@ class TodoEntity {
             notes,
             isCompleted = false
         }: {
+            id?: string;
             title: string;
             category: Category;
             date: Date;
@@ -44,7 +46,7 @@ class TodoEntity {
             isCompleted?: boolean;
         }) {
 
-        this.id = new TodoId();
+        this.id = new TodoId(id);
         this.title = title;
         this.category = category;
         this.date = date;

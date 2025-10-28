@@ -2,13 +2,17 @@
  * Todo Identifier Value Object
  * @summary
  * This class represents a unique identifier for a Todo item.
- * It generates a UUID v4 string upon instantiation.
+ * It can either generate a new UUID v4 string or use an existing one.
  */
 class TodoId {
     private readonly id: string;
 
-    constructor() {
-        this.id = this.generateId();
+    /**
+     * Constructor for TodoId
+     * @param existingId - Optional existing ID to use. If not provided, generates a new UUID
+     */
+    constructor(existingId?: string) {
+        this.id = existingId || this.generateId();
     }
 
     /**
