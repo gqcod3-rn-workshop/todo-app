@@ -3,7 +3,6 @@ import DeleteTodoUseCase from "@/src/application/usecases/delete-todo-usecase";
 import FetchAllTodosUseCase from "@/src/application/usecases/fetch-all-todos-usecase";
 import UpdateTodoStatusUseCase from "@/src/application/usecases/update-todo-status-usecase";
 import TodoRepository from "@/src/domain/repositories/todo-repository";
-import { TodoSQLiteRepositoryImpl } from "@/src/infrastructure/repositories";
 
 /**
  * Todo Application Service
@@ -17,9 +16,8 @@ class TodoApplicationService {
     private readonly fetchAllTodosUseCase: FetchAllTodosUseCase;
     private readonly updateTodoStatusUseCase: UpdateTodoStatusUseCase;
 
-    constructor(repository?: TodoRepository) {
-        this.repository = repository || new TodoSQLiteRepositoryImpl();
-
+    constructor(repository: TodoRepository) {
+        this.repository = repository;
         this.addTodoUseCase = new AddTodoUseCase(this.repository);
         this.deleteTodoUseCase = new DeleteTodoUseCase(this.repository);
         this.fetchAllTodosUseCase = new FetchAllTodosUseCase(this.repository);

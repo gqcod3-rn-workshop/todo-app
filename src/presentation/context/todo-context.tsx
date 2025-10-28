@@ -1,4 +1,5 @@
 import TodoApplicationService from "@/src/application/services/todo-application-service";
+import { TodoSQLiteRepositoryImpl } from "@/src/infrastructure/repositories";
 import React, { useContext, useMemo } from "react";
 
 /**
@@ -27,7 +28,10 @@ export const useTodoService = (): TodoApplicationService => {
  * Simplify Todo Provider for Application Service
  */
 export const TodoProvider = ({ children }: { children: React.ReactNode }) => {
-    const todoService = useMemo(() => new TodoApplicationService(), []);
+    const todoService = useMemo(() => {
+        const repo = new TodoSQLiteRepositoryImpl();
+        return new TodoApplicationService(repo);
+    }, []);
 
     return (
         <TodoContext.Provider value={todoService}>
